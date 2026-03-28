@@ -1,8 +1,13 @@
 import { Upload, FileText, Loader2 } from "lucide-react";
 import { useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
+import { extractTextFromFile } from "@/lib/file-parser";
 
 interface ResumeUploadProps {
+  onTextExtracted: (text: string) => void;
+  isAnalyzing: boolean;
+}
+
   onTextExtracted: (text: string) => void;
   isAnalyzing: boolean;
 }
