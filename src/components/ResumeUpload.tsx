@@ -14,7 +14,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
 
   const extractText = useCallback(async (file: File) => {
     setFileName(file.name);
-    const text = await file.text();
+    const text = await extractTextFromFile(file);
     onTextExtracted(text);
   }, [onTextExtracted]);
 
