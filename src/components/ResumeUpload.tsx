@@ -69,7 +69,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
           <Upload className="h-12 w-12 text-muted-foreground" />
           <div className="text-center">
             <p className="text-lg font-medium text-foreground">Drop your resume here</p>
-            <p className="text-sm text-muted-foreground mt-1">or click to browse — supports .txt files</p>
+            <p className="text-sm text-muted-foreground mt-1">or click to browse — supports PDF, DOCX, and TXT</p>
           </div>
         </>
       )}
