@@ -47,7 +47,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
       <input
         id="resume-file-input"
         type="file"
-        accept=".txt,.md,.text"
+        accept=".txt,.md,.text,.pdf,.docx"
         className="hidden"
         onChange={handleFileInput}
       />
