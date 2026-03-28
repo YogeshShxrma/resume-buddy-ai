@@ -8,10 +8,6 @@ interface ResumeUploadProps {
   isAnalyzing: boolean;
 }
 
-  onTextExtracted: (text: string) => void;
-  isAnalyzing: boolean;
-}
-
 export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
