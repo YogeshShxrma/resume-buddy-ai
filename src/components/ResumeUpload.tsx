@@ -1,6 +1,7 @@
 import { Upload, FileText, Loader2 } from "lucide-react";
 import { useCallback, useState } from "react";
 import { cn } from "@/lib/utils";
+import { extractTextFromFile } from "@/lib/file-parser";
 
 interface ResumeUploadProps {
   onTextExtracted: (text: string) => void;
@@ -13,7 +14,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
 
   const extractText = useCallback(async (file: File) => {
     setFileName(file.name);
-    const text = await file.text();
+    const text = await extractTextFromFile(file);
     onTextExtracted(text);
   }, [onTextExtracted]);
 
@@ -46,7 +47,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
       <input
         id="resume-file-input"
         type="file"
-        accept=".txt,.md,.text"
+        accept=".txt,.md,.text,.pdf,.docx"
         className="hidden"
         onChange={handleFileInput}
       />
@@ -68,7 +69,7 @@ export function ResumeUpload({ onTextExtracted, isAnalyzing }: ResumeUploadProps
           <Upload className="h-12 w-12 text-muted-foreground" />
           <div className="text-center">
             <p className="text-lg font-medium text-foreground">Drop your resume here</p>
-            <p className="text-sm text-muted-foreground mt-1">or click to browse — supports .txt files</p>
+            <p className="text-sm text-muted-foreground mt-1">or click to browse — supports PDF, DOCX, and TXT</p>
           </div>
         </>
       )}
